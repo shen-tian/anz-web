@@ -57,3 +57,10 @@ strapi:
             layout: post.html
             # Generate output files or not (default: false)
             output: true
+        articles:
+            type: articles
+            permalink: /articles/:slug
+            layout: post.html
+            output: true
+        publications:
+            type: publications

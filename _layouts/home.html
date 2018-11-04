@@ -19,14 +19,16 @@ layout: default
 <!-- Main -->
 <div id="main">
   <section id="one" class="tiles">
-    {%- for post in strapi.collections.posts limit:site.tiles-count -%}
+    {% assign sorted = strapi.collections.articles | sort: 'date-published' | reverse %}
+    {%- for article in sorted limit:site.tiles-count -%}
     <article>
       <span class="image">
         <img src="{{ post.image }}" alt="" />
       </span>
       <header class="major">
-        <h3><a href="{{ post.url  | relative_url }}" class="link">{{ post.title }}</a></h3>
-        <p>{{ post.content | markdownify | strip_html | truncatewords: 25 }}</p>
+        <h3><a href="{{ article.url  | relative_url }}" class="link">{{ article.title }}</a></h3>
+        <h5>Published in {{ article.publication.name }} on {{ article.date-published | date: '%d %B %Y' }}</h5>
+        <p>{{ article.content | markdownify | strip_html | truncatewords: 25 }}</p>
       </header>
     </article>
     {%- endfor -%}
