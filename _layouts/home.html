@@ -2,22 +2,33 @@
 layout: default
 ---
 
-<div class="home">
-    <h1 class="page-heading">Posts</h1>
-    {%- if strapi.collections.posts.size > 0 -%}
-    <ul class="post-list">
-        {%- for post in strapi.collections.posts -%}
-        <li>
-            <span class="post-meta">{{ post.createdAt | date_to_string }} by {{ post.author.username }}</span>
-            <h3>
-                <a class="post-link" href="{{ post.url | relative_url }}">
-                    {{ post.title }}
-                </a>
-            </h3>
-            <!-- Display an excerpt of the article -->
-            <p>{{ post.content | markdownify | strip_html | truncatewords: 10 }}</p>
-        </li>
-        {%- endfor -%}
-    </ul>
-    {%- endif -%}
+{% include header.html %}
+
+<!-- Banner -->
+<section id="banner" class="major">
+  <div class="inner">
+    <header class="major">
+      <h1>Andrea Teagle</h1>
+    </header>
+    <div class="content">
+      <p style="text-transform: uppercase;">{{ site.description }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Main -->
+<div id="main">
+  <section id="one" class="tiles">
+    {%- for post in strapi.collections.posts limit:site.tiles-count -%}
+    <article>
+      <span class="image">
+        <img src="{{ post.image }}" alt="" />
+      </span>
+      <header class="major">
+        <h3><a href="{{ post.url  | relative_url }}" class="link">{{ post.title }}</a></h3>
+        <p>{{ post.content | markdownify | strip_html | truncatewords: 25 }}</p>
+      </header>
+    </article>
+    {%- endfor -%}
+  </section>
 </div>
