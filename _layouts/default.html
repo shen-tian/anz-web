@@ -8,6 +8,13 @@
   {% include head.html %}
   <body>
     <div id="wrapper">
+      {% if page.layout != "home" %}
+      <header id="header" class="alt">
+	<a href="{{ "" }}/" class="logo">
+          <strong>{{ site.title }}</strong> <span>{{ site.subtitle }}</span>
+        </a>
+      </header>
+      {% endif %}
       {{ content }}
     </div>
   </body>

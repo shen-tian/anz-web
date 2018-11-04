@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<!-- Main -->
+<div id="main" class="alt">
+  <!-- One -->
+  <section id="one">
+    <div class="inner">
+      <header class="major" style="max-width: 100%">
+	<h1>{{ page.document.title }}</h1>
+      </header>
+      <div class="row">
+        <div class="col-5 col-12-small">
+          <span class="image fit">
+            <img src="{{ page.document.cover-image.url }}" alt="">
+          </span>
+        </div>
+        <div class="col-7 col-12-small">
+          {{ page.document.content | markdownify }}
+        </div>
+      </div>
+  </section>
+</div>
