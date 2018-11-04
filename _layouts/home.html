@@ -2,8 +2,6 @@
 layout: default
 ---
 
-{% include header.html %}
-
 <!-- Banner -->
 <section id="banner" class="major">
   <div class="inner">
@@ -20,7 +18,7 @@ layout: default
 <div id="main">
   <section id="one" class="tiles">
     {% assign sorted = strapi.collections.articles | sort: 'date-published' | reverse %}
-    {%- for article in sorted limit:site.tiles-count -%}
+    {% for article in sorted limit:site.tiles-count %}
     <article>
       <span class="image">
         <img src="{{ post.image }}" alt="" />
@@ -31,6 +29,6 @@ layout: default
         <p>{{ article.content | markdownify | strip_html | truncatewords: 25 }}</p>
       </header>
     </article>
-    {%- endfor -%}
+    {% endfor %}
   </section>
 </div>
