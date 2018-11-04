@@ -11,7 +11,7 @@ layout: default
 	<h1>{{ page.document.title }}</h1>
         <h5>Published in {{ page.document.publication.name }} on {{ page.document.date-published | date: '%d %B %Y' }}</h5>
   </header>
-      {% if page.image %}<span class="image main"><img src="{{ site.baseurl }}/{{ page.image }}" alt="" /></span>{% endif %}
+      {% if page.document.cover-image %}<span class="image main"><img src="{{ page.document.cover-image.url }}" alt="" /></span>{% endif %}
       {{ page.document.content | markdownify }}
       <a class="button primary" href="{{ page.document.link }}">Read the full article on {{ page.document.publication.name }}</a>
     </div>

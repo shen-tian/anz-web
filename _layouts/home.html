@@ -19,9 +19,10 @@ layout: default
   <section id="one" class="tiles">
     {% assign sorted = strapi.collections.articles | sort: 'date-published' | reverse %}
     {% for article in sorted limit:site.tiles-count %}
-    <article>
+
+    <article style="background-image: url({{ article.cover-image.url }})">
       <span class="image">
-        <img src="{{ post.image }}" alt="" />
+        <img src="{{ article.cover-image.url }}" alt="" />
       </span>
       <header class="major">
         <h3><a href="{{ article.url  | relative_url }}" class="link">{{ article.title }}</a></h3>
@@ -32,3 +33,5 @@ layout: default
     {% endfor %}
   </section>
 </div>
+
+{% include footer.html %}
