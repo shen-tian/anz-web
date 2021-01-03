@@ -11,9 +11,9 @@ layout: default
 	<h1>{{ page.document.title }}</h1>
         <h5>{{ page.document.createdAt | date: '%d %B %Y' }}</h5>
   </header>
-      {% if page.document.cover-image %}
+      {% if page.document.cover_image %}
       <span class="image main">
-        <img src="{{ page.document.cover-image.url }}" alt="" />
+        <img src="{{ page.document.cover_image.url }}" alt="" />
       </span>
       {% endif %}
       {{ page.document.content | markdownify }}

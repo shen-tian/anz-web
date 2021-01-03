@@ -42,9 +42,9 @@ layout: default
     {% assign sorted = strapi.collections.articles | sort: 'date-published' | reverse %}
     {% for article in sorted limit:site.tiles-count %}
 
-    <article style="background-image: url({{ article.cover-image.url }})">
+    <article style="background-image: url({{ article.cover_image.url }})">
       <span class="image">
-        <img src="{{ article.cover-image.url }}" alt="" />
+        <img src="{{ article.cover_image.url }}" alt="" />
       </span>
       <header class="major">
         <h3><a href="{{ article.url  | relative_url }}" class="link">{{ article.title }}</a></h3>
