@@ -39,7 +39,7 @@ layout: default
 
   <section id="tree" class="tiles">
 
-    {% assign sorted = strapi.collections.articles | sort: 'date-published' | reverse %}
+    {% assign sorted = strapi.collections.articles | sort: 'date_published' | reverse %}
     {% for article in sorted limit:site.tiles-count %}
 
     <article style="background-image: url({{ article.cover_image.url }})">
@@ -48,7 +48,7 @@ layout: default
       </span>
       <header class="major">
         <h3><a href="{{ article.url  | relative_url }}" class="link">{{ article.title }}</a></h3>
-        <h5>Published in {{ article.publication.name }} on {{ article.date-published | date: '%d %B %Y' }}</h5>
+        <h5>Published in {{ article.publication.Name }} on {{ article.date_published | date: '%d %B %Y' }}</h5>
         <p>{{ article.content | markdownify | strip_html | truncatewords: 25 }}</p>
       </header>
     </article>

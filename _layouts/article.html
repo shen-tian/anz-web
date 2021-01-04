@@ -13,7 +13,7 @@ layout: default
   </header>
       {% if page.document.cover_image %}<span class="image main"><img src="{{ page.document.cover_image.url }}" alt="" /></span>{% endif %}
       {{ page.document.content | markdownify }}
-      <a class="button primary" href="{{ page.document.link }}">Read the full article on {{ page.document.publication.name }}</a>
+      <a class="button primary" href="{{ page.document.link }}">Read the full article on {{ page.document.publication.Name }}</a>
     </div>
   </section>
 </div>
